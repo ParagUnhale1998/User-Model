@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ editMode ? 'Update User' : 'Add User' }} Form</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="p-3 container-sm">
+    <div class="mb-3">
+      <label for="firstname" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="Enter first name">
+      <span *ngIf="(userForm.get('firstname')?.dirty || userForm.get('firstname')?.touched) && userForm.get('firstname')?.hasError('required')" class="text-danger">First Name is required.</span>
+    </div>
+    <div class="mb-3">
+      <label for="lastname" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Enter last name">
+      <span *ngIf="(userForm.get('lastname')?.dirty || userForm.get('lastname')?.touched) && userForm.get('lastname')?.hasError('required')" class="text-danger">last Name is required.</span>
+
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+      <span *ngIf="(userForm.get('email')?.dirty || userForm.get('email')?.touched) && userForm.get('email')?.hasError('required')" class="text-danger">Email is required.</span>
+        <span *ngIf="userForm.get('email')?.hasError('email')" class="text-danger">Invalid email format.</span>
+    </div>
+    <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <textarea class="form-control" id="address" formControlName="address" rows="3" placeholder="Enter address"></textarea>
+      <span *ngIf="(userForm.get('address')?.dirty || userForm.get('address')?.touched) && userForm.get('address')?.hasError('required')" class="text-danger">Address is required.</span>
+
+    </div>
+    <button type="submit" class="btn btn-primary me-2" [disabled]="userForm.invalid">{{ editMode ? 'Update' : 'Submit' }}</button>
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Close click')">Close</button>
+  </form>
+  
+<!-- <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="activeModal.close('Close click')">Close</button>
+</div> -->

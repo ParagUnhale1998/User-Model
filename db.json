@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "d433",
+      "firstname": "Leanne ",
+      "lastname": "Graham",
+      "email": "Sincere@april.biz",
+      "address": "Gwenborough"
+    },
+    {
+      "id": "d6de",
+      "firstname": "Ervin ",
+      "lastname": "Howell",
+      "email": "Shanna@melissa.tv",
+      "address": "Suite 879 , Wisokyburgh"
+    },
+    {
+      "id": "8c4d",
+      "firstname": "Clementine ",
+      "lastname": "Bauch",
+      "email": "Nathan@yesenia.net",
+      "address": "McKenziehaven"
+    }
+  ]
+}

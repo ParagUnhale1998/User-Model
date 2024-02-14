@@ -1,0 +1,38 @@
+<div class="container-fluid " >
+  <div *ngIf="!users || users.length === 0" class="alert alert-danger" role="alert">
+    Data is not available. Please try again later.
+  </div>
+  <table class="container-sm table table-striped border ">
+    <thead>
+      <tr>
+        <th scope="col">Index</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">lastName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; index as i; trackBy: trackById">
+        <td>{{ i + 1}}</td>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          {{ user.address}}
+        </td>
+        <td class="d-flex gap-2">
+          <!-- Edit button with icon -->
+          <button class="btn btn-primary" (click)="editUser(user)">
+            <i class="fas fa-edit"></i>
+          </button>
+          <!-- Delete button with icon -->
+          <button class="btn btn-danger flex-shrink-1" (click)="deleteUser(user.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
